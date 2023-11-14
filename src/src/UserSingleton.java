@@ -3,7 +3,7 @@ public class UserSingleton {
     private String Name;
     private String Lasrname;
 
-    private static UserSingleton getInstance(){
+    static UserSingleton getInstance(){
         if(instance == null){
             instance = new UserSingleton();
         }
