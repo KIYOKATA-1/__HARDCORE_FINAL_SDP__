@@ -13,5 +13,14 @@ public class Main {
         String Lastname = scanner.nextLine();
 
         user.setUserInfo(Name, Lastname);
+
+
+        // ----- Factory -----
+        MotorcycleFactory factory = new KawasakiMotorcycleFactory();
+        Motorcycle motorcycle = factory.createMotorcycle();
+        System.out.println(user.getFullName() + " " + " Your Order In Proccess" + motorcycle.getDetails());
+        System.out.println("Total Price: $" + motorcycle.getPrice());
     }
+
+
 }
