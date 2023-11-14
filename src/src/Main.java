@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         //----- Singleton -----
-         UserSingleton user = UserSingleton.getInstance();
+        UserSingleton user = UserSingleton.getInstance();
 
         System.out.println("< Enter Your Name:");
         String Name = scanner.nextLine();
@@ -15,12 +15,40 @@ public class Main {
         user.setUserInfo(Name, Lastname);
 
 
-        // ----- Factory -----
         MotorcycleFactory factory = new KawasakiMotorcycleFactory();
-        Motorcycle motorcycle = factory.createMotorcycle();
-        System.out.println(user.getFullName() + " " + " Your Order In Proccess" + motorcycle.getDetails());
-        System.out.println("Total Price: $" + motorcycle.getPrice());
+        MotoOrder order = new MotoOrder();
+
+        Motorcycle motorcycle= factory.createMotorcycle();
+
+        order.addMotorcycle(motorcycle);
+
+        // Use the abstract factory to create the motorcycle
+        System.out.println("Do you want to add decorations? (yes/no)");
+        String answer = scanner.nextLine();
+
+        if (answer.equalsIgnoreCase("yes")) {
+            System.out.println("Choose decoration: ");
+            System.out.println("1. Custom Paint");
+            System.out.println("2. LED Lights");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    Motorcycle decoratedMotorcycle = new MotoDecorator(motorcycle, "Custom Paint");
+                    order.addDecoration((MotoDecorator) decoratedMotorcycle);
+                    break;
+                case 2:
+                    Motorcycle decoratedMotorcycle2 = new MotoDecorator(motorcycle, "LED Lights");
+                    order.addDecoration((MotoDecorator) decoratedMotorcycle2);
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+
+            // Display details and price of the selected motorcycle
+            System.out.println("You have ordered the following motorcycle:");
+            System.out.println(motorcycle.getDetails());
+            System.out.println("Total Price: $" + motorcycle.getPrice());
+        }
     }
-
-
 }
