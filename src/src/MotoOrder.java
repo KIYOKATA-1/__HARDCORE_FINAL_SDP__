@@ -6,10 +6,11 @@ public class MotoOrder {
     }
 
     public void addDecoration(MotoDecorator decoration) {
-        this.totalPrice += decoration.getPrice();
+        this.totalPrice = decoration.getPrice();
     }
 
     public double getTotalPrice() {
         return totalPrice;
     }
+
 }

@@ -34,21 +34,33 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    Motorcycle decoratedMotorcycle = new MotoDecorator(motorcycle, "Custom Paint");
+                    Motorcycle decoratedMotorcycle = new MotoDecorator(motorcycle, "Custom Paint",1500);
                     order.addDecoration((MotoDecorator) decoratedMotorcycle);
                     break;
                 case 2:
-                    Motorcycle decoratedMotorcycle2 = new MotoDecorator(motorcycle, "LED Lights");
+                    Motorcycle decoratedMotorcycle2 = new MotoDecorator(motorcycle, "LED Lights",1500);
                     order.addDecoration((MotoDecorator) decoratedMotorcycle2);
                     break;
                 default:
                     System.out.println("Invalid choice");
             }
+            System.out.println("Total Price: $" + order.getTotalPrice());
+
+            System.out.println("----- CHOOSE THE PAYMENT METHOD -----");
+            System.out.println("< 1. QR");
+            System.out.println("< 2. Card");
+            int choicee = scanner.nextInt();
+
+            switch (choicee){
+                case 1:
+                    QRPayment qrPayment = new qrAdapter(new QR());
+                    qrPayment.processQR("---------");
+            }
 
             // Display details and price of the selected motorcycle
             System.out.println("You have ordered the following motorcycle:");
             System.out.println(motorcycle.getDetails());
-            System.out.println("Total Price: $" + motorcycle.getPrice());
+            System.out.println("Total Price: $" + order.getTotalPrice());
         }
     }
 }

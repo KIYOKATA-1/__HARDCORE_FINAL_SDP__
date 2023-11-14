@@ -3,7 +3,7 @@ public class Kawasaki1000 implements Motorcycle{
     private String model = "Ninja 1000";
     private String color;
     private int maxSpeed = 300;
-    private int basePrice = 3000;
+    private double basePrice = 3000;
 
     public Kawasaki1000(String color) {
         this.color = color;
@@ -30,7 +30,7 @@ public class Kawasaki1000 implements Motorcycle{
     }
 
     @Override
-    public int getPrice() {
+    public double getPrice() {
         return basePrice;
     }
 

@@ -3,6 +3,6 @@ public interface Motorcycle {
     String getModel();
     String getColor();
     int getMaxSpeed();
-    int getPrice();
+    double getPrice();
     String getDetails();
 }

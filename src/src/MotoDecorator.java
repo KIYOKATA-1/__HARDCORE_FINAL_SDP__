@@ -1,10 +1,15 @@
+import java.util.List;
+
 public class MotoDecorator implements Motorcycle{
     private Motorcycle motorcycle;
     private String decoration;
 
-    public MotoDecorator(Motorcycle motorcycle, String decoration) {
+    private int DecorPrice;
+
+    public MotoDecorator(Motorcycle motorcycle, String decoration, int DecorPrice) {
         this.motorcycle = motorcycle;
         this.decoration = decoration;
+        this.DecorPrice = DecorPrice;
     }
 
     @Override
@@ -28,13 +33,15 @@ public class MotoDecorator implements Motorcycle{
     }
 
     @Override
-    public int getPrice() {
-        return motorcycle.getPrice() + 1000;
+    public double getPrice() {
+        return motorcycle.getPrice() + DecorPrice;
     }
 
     @Override
     public String getDetails() {
-        return null;
+        return "Brand: " + getBrand() + "\nModel: " + getModel() +
+                "\nColor: " + getColor() + "\nMax Speed: " + getMaxSpeed() +
+                "\nPrice: $" + getPrice();
     }
 
 }
