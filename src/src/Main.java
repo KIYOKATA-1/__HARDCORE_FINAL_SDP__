@@ -55,6 +55,18 @@ public class Main {
                 case 1:
                     QRPayment qrPayment = new qrAdapter(new QR());
                     qrPayment.processQR("---------");
+                case 2:
+                    System.out.println("Enter card number:");
+                    String cardNum = scanner.next();
+                    System.out.println("Enter expiry date:");
+                    String date = scanner.next();
+                    System.out.println("Enter CVV:");
+                    int cvv = scanner.nextInt();
+
+                    CardPayment cardPayment = new CardStrategy(cardNum, date, cvv);
+                    CardContext cardContext = new CardContext();
+                    cardContext.setCardPayment(cardPayment);
+                    cardContext.processCard(order.getTotalPrice());
             }
 
             // Display details and price of the selected motorcycle
