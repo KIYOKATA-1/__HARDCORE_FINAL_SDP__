@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class KawasakiMotorcycleFactory implements MotorcycleFactory{
+public class KawasakiMotorcycleFactory implements MotorcycleFactory {
     @Override
     public Motorcycle createMotorcycle() {
         Scanner scanner = new Scanner(System.in);
@@ -26,6 +26,8 @@ public class KawasakiMotorcycleFactory implements MotorcycleFactory{
         System.out.println("Choose a Kawasaki motorcycle model:");
         System.out.println("1 - Ninja 1000");
         System.out.println("2 - Ninja 600");
+        System.out.println("3 - Ninja 400");
+
 
         int modelChoice = scanner.nextInt();
 

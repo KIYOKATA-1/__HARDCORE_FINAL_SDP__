@@ -36,6 +36,6 @@ public class Kawasaki600 implements Motorcycle{
 
     @Override
     public String getDetails() {
-        return "Motorcycle: " + getBrand() + " " + getModel() + ", Color: " + getColor() + ", Max Speed: " + getMaxSpeed() + " km/h";
+        return getBrand() + " " + getModel() + ", Color: " + getColor() + ", Max Speed: " + getMaxSpeed() + " km/h";
     }
 }

@@ -55,6 +55,9 @@ public class Main {
                 case 1:
                     QRPayment qrPayment = new qrAdapter(new QR());
                     qrPayment.processQR("---------");
+                    System.out.println("You have ordered " + motorcycle.getDetails());
+                    System.out.println("Total Price: $" + order.getTotalPrice());
+                    break;
                 case 2:
                     System.out.println("Enter card number:");
                     String cardNum = scanner.next();
@@ -70,9 +73,13 @@ public class Main {
             }
 
             // Display details and price of the selected motorcycle
-            System.out.println("You have ordered the following motorcycle:");
+       System.out.println("You have ordered the following motorcycle:");
             System.out.println(motorcycle.getDetails());
             System.out.println("Total Price: $" + order.getTotalPrice());
         }
+        Thx thx = new Thx();
+        order.addObserver(thx);
+
+        order.notifyObservers();
     }
 }
