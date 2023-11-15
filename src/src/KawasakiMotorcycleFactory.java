@@ -1,6 +1,4 @@
 import java.util.Scanner;
-import java.awt.*;
-import java.awt.event.*;
 
 public class KawasakiMotorcycleFactory implements MotorcycleFactory {
     @Override
