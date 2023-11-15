@@ -1,11 +1,11 @@
-public class Kawasaki600 implements Motorcycle{
+public class Kawasaki400 implements Motorcycle{
     private String brand = "Kawasaki";
-    private String model = "Ninja 600";
+    private String model = "Ninja 400";
     private String color;
     private int maxSpeed = 200;
-    private double basePrice = 1500;
+    private double basePrice = 0;
 
-    public Kawasaki600(String color) {
+    public Kawasaki400(String color) {
         this.color = color;
     }
 
@@ -36,6 +36,6 @@ public class Kawasaki600 implements Motorcycle{
 
     @Override
     public String getDetails() {
-        return getBrand() + " " + getModel() + ", Color: " + getColor() + ", Max Speed: " + getMaxSpeed() + " km/h";
+        return getBrand() + getModel() + "Is no availible";
     }
 }
